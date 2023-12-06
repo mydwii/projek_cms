@@ -48,6 +48,7 @@ class Password extends CI_Controller
     }
     public function updatefoto()
     {
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $id_user = $this->input->post('id_user');
 
         $upload_image = $_FILES['image']['name'];

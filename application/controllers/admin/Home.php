@@ -21,6 +21,7 @@ class Home extends CI_Controller
 			'caraousel' => $this->db->get('caraousel')->num_rows(),
 			'galeri' => $this->db->get('galeri')->num_rows(),
 			'saran' => $this->db->get('saran')->num_rows(),
+			'jumlah_konten' => $this->db->select('k.kategori, k.id_kategori, COUNT(c.id_konten) AS jumlah_konten')->from('kategori k')->join('konten c', 'k.id_kategori = c.id_kategori', 'left')->group_by('k.kategori, k.id_kategori')->get()->result(),
 		);
 		$this->template->load('template_admin', 'admin/dashboard', $data);
 	}

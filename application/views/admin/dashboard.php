@@ -145,5 +145,39 @@
 
             </div>
     </section>
+    <div class="row">
+        <div class="col-xl-4">
+            <!-- Kategori Konten -->
+            <div class="card card-default">
+                <div class="card-header">
+                    <h2 class="card-title">Kategori Konten</h2>
+                </div>
+                <div class="card-body">
+                    <table class="table table-borderless table-thead-border">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th class="text-right">Jumlah</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($jumlah_konten as  $value) : ?>
+                                <tr>
+                                    <td class="text-dark font-weight-bold"><?= $value->kategori; ?></td>
+                                    <td class="text-right"><?= $value->jumlah_konten; ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                        <tfoot class="border-top">
+                            <tr>
+                                <td><a href="<?= base_url('admin/kategori'); ?>" class="text-uppercase">See All</a></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 </div>

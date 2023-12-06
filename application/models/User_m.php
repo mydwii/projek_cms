@@ -27,4 +27,10 @@ class User_m extends CI_Model
         );
         $this->db->update('user', $data, $where);
     }
+
+    public function deleteselected($check)
+    {
+        $this->db->where_in('id_saran', $check);
+        return $this->db->delete('saran');
+    }
 }

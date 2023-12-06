@@ -24,18 +24,18 @@
 
         <!-- Header -->
 
-        <header class="header" style="">
+        <header class="header" style="background: rgba(0, 0, 0, 0.3);">
             <div class="container">
                 <div class="row">
                     <div class="col">
                         <div class="header_content d-flex flex-row align-items-center justify-content-start">
-                            <div class="logo"><a href="#" class="text-secondary"><?= $konfigurasi->judul_website ?></a></div>
+                            <div class="logo"><a href="<?= base_url('home') ?>" class="text-light"><?= $konfigurasi->judul_website ?></a></div>
                             <nav class="main_nav">
                                 <ul>
-                                    <li class="active text-secondary"><a href="<?= base_url() ?>" class="text-secondary">Home</a></li>
+                                    <li class="active text-secondary"><a href="<?= base_url() ?>" class="text-light">Home</a></li>
                                     <li>
                                         <div class="dropdown">
-                                            <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <a class="dropdown-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 Kategori
                                             </a>
                                             <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
@@ -48,9 +48,9 @@
                                         </div>
                                     </li>
 
-                                    <li><a href="<?= base_url('home/galeri/') ?>" class="text-secondary">Galeri</a></li>
-                                    <li><a href="<?= base_url('home/saran') ?>" class="text-secondary">Saran</a></li>
-                                    <li><a href="<?= base_url('auth') ?>" class="text-secondary">Administrator</a></li>
+                                    <li><a href="<?= base_url('home/galeri/') ?>" class="text-light">Galeri</a></li>
+                                    <li><a href="<?= base_url('home/saran') ?>" class="text-light">Saran</a></li>
+                                    <li><a href="<?= base_url('auth') ?>" class="text-light">Administrator</a></li>
                                 </ul>
                             </nav>
                             <div class="search_container ml-auto">
@@ -78,11 +78,17 @@
                     <div></div>
                 </div>
             </div>
-            <div class="logo menu_mm"><a href="#"><?= $konfigurasi->judul_website ?></a></div>
+            <div class="logo menu_mm"><a href="<?= base_url('home') ?>"><?= $konfigurasi->judul_website ?></a></div>
             <div class="search">
-                <form action="#">
-                    <input type="search" class="header_search_input menu_mm" required="required" placeholder="Type to Search...">
-                    <img class="header_search_icon menu_mm" src="<?= base_url('assets/avision-master/') ?>images/search_2.png" alt="">
+                <form action="<?= base_url('home') ?>" method="post">
+                    <div class="row">
+                        <div class="col-9">
+                            <input type="text" name="keyword" class="menu_mm header_search_input" placeholder="Type to Search...">
+                        </div>
+                        <div class="col-3">
+                            <input type="submit" class="btn btn-secondary" name="submit" value="cari">
+                        </div>
+                    </div>
                 </form>
             </div>
             <nav class="menu_nav">
@@ -90,12 +96,12 @@
                     <li class="menu_mm"><a href="<?= base_url() ?>">home</a></li>
                     <li>
                         <div class="dropdown">
-                            <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="dropdown-toggle text-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Kategori
                             </a>
-                            <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-menu bg-light" aria-labelledby="dropdownMenuButton">
                                 <?php foreach ($kategori as $gori) { ?>
-                                    <a class="dropdown-item text-secondary" href="<?= base_url('home/kategori/' . $gori['id_kategori']) ?>">
+                                    <a class="dropdown-item" href="<?= base_url('home/kategori/' . $gori['id_kategori']) ?>">
                                         <?= $gori['kategori'] ?>
                                     </a>
                                 <?php } ?>
@@ -136,7 +142,7 @@
                     <div class="col-lg-4 order-lg-1 order-2">
                         <div class="footer_content">
                             <div class="d-flex flex-column justify-content-start">
-                                <div class="footer_logo mb-3"><a href="#">Quick Links</a></div>
+                                <div class="footer_logo mb-3"><a href="#">Kategori</a></div>
                                 <a class="text-secondary mb-2 text-left ml-5" href="<?= base_url() ?>"><i class="fa fa-angle-right"></i> Home</a>
                                 <?php foreach ($kategori as $gori) { ?>
                                     <a class="text-secondary mb-2 text-left ml-5" href="<?= base_url('home/kategori/' . $gori['id_kategori']) ?>"><i class="fa fa-angle-right mr-2"></i><?= $gori['kategori'] ?></a>
@@ -161,7 +167,7 @@
                         <div class="copyright text-center mb-4"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             Copyright &copy;<script>
                                 document.write(new Date().getFullYear());
-                            </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank"><?= $konfigurasi->judul_website ?></a>
+                            </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="<?= $konfigurasi->instagram ?>" target="_blank"><?= $konfigurasi->judul_website ?></a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div>
                     </div>
@@ -183,3 +189,13 @@
 </body>
 
 </html>
+<style>
+    .d-none {
+        visibility: hidden;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('[style="text-align: right;position: fixed;z-index:9999999;bottom: 0;width: auto;right: 1%;cursor: pointer;line-height: 0;display:block !important;"]').classList.add('d-none');
+    })
+</script>

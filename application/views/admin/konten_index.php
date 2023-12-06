@@ -73,7 +73,7 @@
                                 <td><?= $ab['nama']; ?></td>
                                 <td>
                                     <a href="<?= base_url('assets/upload/konten/' . $ab['foto']) ?>" target="_blank">
-                                        <span class=" ri-search-2-line"></span> Lihat Foto
+                                        <img src="<?= base_url('assets/upload/konten/' . $ab['foto']) ?>" class="rounded-circle" style="width:50px" alt="">
                                     </a>
                                 </td>
                                 <td>

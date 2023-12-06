@@ -186,6 +186,7 @@ class Home extends CI_Controller
 	}
 	public function simpan()
 	{
+		date_default_timezone_set('Asia/Jakarta');
 		$this->db->from('saran');
 		$this->db->where('nama', $this->input->post('nama'));
 		$cekso = $this->db->get()->result_array();

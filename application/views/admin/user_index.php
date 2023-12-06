@@ -56,6 +56,7 @@
                             <th>No</th>
                             <th>Username</th>
                             <th>Nama</th>
+                            <th>Profile</th>
                             <th>Level</th>
                             <th>terakhir login</th>
                             <th>Aksi</th>
@@ -69,6 +70,11 @@
                                 <td><?= $no++ ?></td>
                                 <td><?= $ab['username']; ?></td>
                                 <td><?= $ab['nama']; ?></td>
+                                <td>
+                                    <a href="<?= base_url('assets/niceadmin/profile/' . $ab['image']) ?>" target="_blank">
+                                        <img src="<?= base_url('assets/niceadmin/profile/' . $ab['image']) ?>" class="rounded-circle" style="width:50px; height:50px;" alt="">
+                                    </a>
+                                </td>
                                 <td><?= $ab['level']; ?></td>
                                 <?php
                                 date_default_timezone_set('Asia/Jakarta');
